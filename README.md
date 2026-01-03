@@ -3,47 +3,6 @@
 ![image](https://github.com/Erick194/DoomIIRPG-RE/assets/41172072/6249f7bd-18e6-4838-b1ec-8654d18cc1b4)<br>
 https://www.doomworld.com/forum/topic/135602
 
-## Español
-Doom II RPG ingeniería inversa por [GEC]<br />
-Creado por Erick Vásquez García.
-
-Versión actual 0.1
-
-Requiere CMake para crear el proyecto.<br />
-Requisitos para el projecto:
-  * SDL2
-  * Zlib
-  * OpenAL
-
-Configuración por defecto de las teclas.
-
-Move Forward: W, Up<br />
-Move Backward: S, Down<br />
-Move Left: A<br />
-Move Right: D<br />
-Turn Left: Left<br />
-Turn Right: Right<br />
-Atk/Talk/Use: Return<br />
-Next Weapon: Z<br />
-Prev Weapon: X<br />
-Pass Turn: C<br />
-Automap: Tab<br />
-Menu Open/Back: Escape<br />
-Menu Items/Info: I<br />
-Menu Drinks: O<br />
-Menu PDA: P<br />
-Bot Dis/Ret: B<br />
-
-Trucos originales del juego:
-
-Versión J2ME/BREW:<br />
-Abres menu e ingresa los siguientes numeros.<br />
-3666 -> Abre el menú debug.<br />
-1666 -> Reinicia el nivel.<br />
-4332 -> Da al jugador todas las llaves, items y armas.<br />
-3366 -> Inicia el testeo de velocidad, "Benchmark".<br />
-
-## English
 Doom II RPG Reverse Engineering By [GEC]<br />
 Created by Erick Vásquez García.
 
@@ -54,31 +13,37 @@ What you need for the project is:
   * SDL2
   * Zlib
   * OpenAL
+  * Devkitpro
+  * Switch-dev
 
 Default key configuration:
 
-Move Forward: W, Up<br />
-Move Backward: S, Down<br />
-Move Left: A<br />
-Move Right: D<br />
-Turn Left: Left<br />
-Turn Right: Right<br />
-Atk/Talk/Use: Return<br />
-Next Weapon: Z<br />
-Prev Weapon: X<br />
-Pass Turn: C<br />
-Automap: Tab<br />
-Menu Open/Back: Escape<br />
-Menu Items/Info: I<br />
-Menu Drinks: O<br />
-Menu PDA: P<br />
-Bot Dis/Ret: B<br />
+Move Forward: D-Pad Up, L-Stick Up<br />
+Move Backward: D-Pad Down, L-Stick Down<br />
+Move Left: D-Pad Left, L-Stick Left<br />
+Move Right: D-Pad Right, L-Stick Right<br />
+Turn Left: ZL<br />
+Turn Right: ZR<br />
+Atk/Talk/Use: A<br />
+Next Weapon: R<br />
+Prev Weapon: L<br />
+Pass Turn: B<br />
+Automap: Minus<br />
+Menu Open/Back: Plus<br />
+Menu Items/Info: Y<br />
+Menu Drinks: X<br />
 
-Original game cheat codes:
+## Save and config data
 
-J2ME/BREW Version:<br />
-3666 -> Opens debug menu.<br />
-1666 -> Restarts level.<br />
-4332 -> Gives all keys, items and weapons to the player.<br />
-3366 -> Starts speed test "Benchmark".<br />
+All user data is stored in `/switch/doom2rpg/DoomRPG.app` - these files are compatible with the PC release.
 
+## Building instructions
+
+This port uses SDL2 and SDL2_Mixer
+
+1. Install [Devkitpro] and Switch-dev package, also make sure `DEVKITPRO` env variable is set
+1. Install SDL2 and SDL2_Mixer by Pacman
+1. git clone https://github.com/efimandreev0/DoomRPGII-RE-NSLite.git && cd DoomRPGII-RE-NSLite
+1. mkdir build && cd build
+1. cmake .. -DCMAKE_TOOLCHAIN_FILE=$DEVKITPRO/cmake/Switch.cmake
+1. make
